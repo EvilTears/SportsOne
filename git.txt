@@ -1,0 +1,53 @@
+//Git会适当地显示不同的颜色
+git config --global color.ui true
+git config --global user.name zhangsan
+git config --global user.email qq@gmail.com
+git init  			//初始化版本仓库
+git status			//查看状态
+git add HelloWorld.java   	//加入暂存区
+//将暂存区的文件提交至master主分支
+git commit -m "注释"
+git log   			//查看版本记录
+git log --pretty=oneline  	//查看简化版本记录
+git reflog			//查看历史操作记录
+git reset --hard 版本号前7位	//回退到某个版本
+git reset --hard HEAD^		//回退到上一个版本
+git reset --hard HEAD~100
+git checkout -- 文件名         //该文件在工作区的修改全部撤销，用版本库里的版本替换工作区的版本，无论工作区是修改还是删除，都可以“一键还原”
+git reset HEAD 文件名         //把暂存区的修改撤销掉
+git rm 文件名		     //删除版本库文件，然后提交，新建和删除文件都要提交
+
+ssh-keygen -t rsa -C "youremail@example.com"       //添加公私钥
+git remote -v                   //查看远程库与本地库的关系
+git remote add origin git@github.com:EvilTears/learngit.git      //关联一个远程库
+git push -u origin master      //第一次推送master分支的所有内容
+git push origin master        //每次本地提交后，推送最新修改
+git clone git@github.com:EvilTears/gitskills.git               //克隆远程库到本地文件
+//若远程有比本地库更多的东西，需要先拉取远程，再推送
+git pull origin master        //拉取远程分支代码合并到本地master分支
+
+git branch                   //查看分支
+git branch <name>            //创建分支
+git checkout <name>          //切换分支
+git checkout -b dev         //创建并切换分支
+git merge dev               //合并分支，--no-ff参数，表示禁用Fast forward
+git branch -d dev           //删除分支
+git log --graph             //查看分支合并图
+
+git stash                  //把当前工作现场“储藏”起来
+git stash apply            //恢复不删除stash
+git stash drop             //删除stash
+git stash pop              //恢复并删除
+git checkout -b dev origin/dev      //创建远程origin的dev分支到本地
+
+git tag <name>            //创建标签，默认为最新版本
+git tag <name> 版本号     //为历史版本打标签
+git show <tagname>        //查看标签信息
+git tag -a <name> -m "说明" 版本号    //创建有说明的标签
+git push origin <tagname>       //推送标签到远程
+git push origin --tags          //推送所有标签到远程
+git tag -d <tagname>           //删除一个本地标签
+git push origin :refs/tags/<tagname>         //删除一个远程标签
+
+
+
